@@ -4,7 +4,7 @@
   max-width: 1200px;
 }
 
-#root {
+.lightBox {
   position: absolute;
   display: block;
   left: 50%;
@@ -15,4 +15,22 @@
   width: 120px;
   height: 320px;
   border-radius: 30px;
+}
+
+.message {
+  padding-top: 30px;
+}
+
+img {
+  position: absolute;
+  display: block;
+  left: 51%;
+  top: 32%;
+  margin-left: -57px;
+  margin-top: -160px;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  z-index: 100;
+  border: 5px solid #555;
 }

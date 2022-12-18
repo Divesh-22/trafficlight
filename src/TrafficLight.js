@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Green from "./Green";
 import Yellow from "./Yellow";
 import Red from "./Red";
@@ -8,6 +8,34 @@ class TrafficLight extends React.PureComponent {
     red: true,
     yellow: false,
     green: false,
+    imageUrl: "",
+  };
+
+  reset = (color) => {
+    console.log("clicked");
+    if (color == "red") {
+      this.setState({
+        red: true,
+        yellow: false,
+        green: false,
+        imageUrl: "https://img.icons8.com/color/48/null/stop-sign.png",
+      });
+    } else if (color == "yellow") {
+      this.setState({
+        red: false,
+        yellow: true,
+        green: false,
+        imageUrl:
+          "https://img.icons8.com/emoji/48/null/yellow-circle-emoji.png",
+      });
+    } else if (color == "green") {
+      this.setState({
+        red: false,
+        yellow: false,
+        green: true,
+        imageUrl: "https://img.icons8.com/fluency/48/null/go.png",
+      });
+    }
   };
 
   transition = () => {
@@ -16,6 +44,8 @@ class TrafficLight extends React.PureComponent {
         red: false,
         yellow: true,
         green: false,
+        imageUrl:
+          "https://img.icons8.com/emoji/48/null/yellow-circle-emoji.png",
       });
       this.waitYellowInterval();
       return;
@@ -26,6 +56,7 @@ class TrafficLight extends React.PureComponent {
         red: false,
         yellow: false,
         green: true,
+        imageUrl: "https://img.icons8.com/fluency/48/null/go.png",
       });
       this.waitGreenInterval();
       return;
@@ -36,6 +67,7 @@ class TrafficLight extends React.PureComponent {
         red: true,
         yellow: false,
         green: false,
+        imageUrl: "https://img.icons8.com/color/48/null/stop-sign.png",
       });
       this.waitRedInterval();
       return;
@@ -59,13 +91,36 @@ class TrafficLight extends React.PureComponent {
   }
 
   render() {
-    const { green, yellow, red } = this.state;
+    const { green, yellow, red, imageUrl } = this.state;
 
     return (
       <div>
-        <Red isOn={red} />
-        <Yellow isOn={yellow} />
-        <Green isOn={green} />
+        <div className="lightBox">
+          <div
+            onClick={() => {
+              this.reset("red");
+            }}
+          >
+            <Red isOn={red} />
+          </div>
+          <div
+            onClick={() => {
+              this.reset("yellow");
+            }}
+          >
+            <Yellow isOn={yellow} />
+          </div>
+          <div
+            onClick={() => {
+              this.reset("green");
+            }}
+          >
+            <Green isOn={green} />
+          </div>
+        </div>
+        <div>
+          <img src={imageUrl} />
+        </div>
       </div>
     );
   }

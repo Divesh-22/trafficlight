@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Light = ({ style }) => (
+const Light = ({ style, message }) => (
   <div
     style={{
       appearance: "none",
@@ -17,7 +17,7 @@ const Light = ({ style }) => (
       ...style,
     }}
   >
-    &nbsp;
+    <div className="message">{message}</div>
   </div>
 );
 
