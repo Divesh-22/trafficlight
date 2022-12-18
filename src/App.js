@@ -1,9 +1,9 @@
 import "./styles.css";
-
+import TrafficLight from "./TrafficLight.js";
 export default function App() {
   return (
     <div className="app">
-      <h1>Traffic Light</h1>
+      <TrafficLight />
     </div>
   );
 }
