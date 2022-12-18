@@ -1,0 +1,10 @@
+.app {
+  font-family: sans-serif;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.container {
+  margin-top: 80px;
+  margin-left: 60px;
+}
